@@ -1,0 +1,13 @@
+6 6
+1 1
+2 1
+
+4 6 5 4 6 5
+6 6 2 5 6 5
+
+r d 0 0 r d
+l r r r u d
+u l 0 d l l
+r u 0 r d 0
+u d l l r d
+u l 0 u l l
