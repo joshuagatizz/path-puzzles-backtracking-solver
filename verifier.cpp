@@ -65,7 +65,7 @@ bool verifyConnectivity() {
 
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            if (A[i][j] == '0' && visited[i][j] != 0) {
+            if (A[i][j] != '0' && visited[i][j] == 0) {
                 return false;
             }
         }
@@ -83,7 +83,6 @@ bool verifyConstraint(vector<int> crow, vector<int> ccol) {
             }
         }
     }
-
     for (int i = 0; i < m; i++) {
         if (cr[i] != -1 && crow[i] != 0) {
             return false;
