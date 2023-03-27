@@ -2,7 +2,12 @@
 // Author: Joshua E. S.
 
 #include <bits/stdc++.h>
+#define fi first
+#define se second
 using namespace std;
+using namespace std::chrono;
+
+steady_clock::time_point timeStart, timeStop;
 
 int m, n;
 pair<int, int> start, finish;
@@ -11,8 +16,8 @@ vector<int> cr, cc;
 
 void readInput() {
     cin >> m >> n;
-    cin >> start.first >> start.second;
-    cin >> finish.first >> finish.second;
+    cin >> start.fi >> start.se;
+    cin >> finish.fi >> finish.se;
     for (int i = 0; i < m; i++) {
         int x; cin >> x;
         cr.push_back(x);
@@ -39,11 +44,16 @@ bool verifyConnectivity() {
     vector<vector<int>> visited;
     visited.resize(m, vector<int>(n, 0));
     pair<int, int> current;
-    current = {start.first-1, start.second-1};
-    pair<int, int> finZeroIdx = {finish.first-1, finish.second-1};
+    current = {start.fi-1, start.se-1};
+    pair<int, int> staZeroIdx = {start.fi-1, start.se-1};
+    pair<int, int> finZeroIdx = {finish.fi-1, finish.se-1};
+    
+    if (A[staZeroIdx.fi][staZeroIdx.se] == 0 || A[finZeroIdx.fi][finZeroIdx.se] == 0) {
+        return false;
+    }
 
-    while (current != finZeroIdx && visited[current.first][current.second] != 1) {
-        int ic = current.first, jc = current.second;
+    while (current != finZeroIdx && visited[current.fi][current.se] != 1) {
+        int ic = current.fi, jc = current.se;
         visited[ic][jc] = 1;
         if (A[ic][jc] == 'l' && isValidCell(ic, jc-1)) {
             current = {ic, jc-1};
@@ -58,10 +68,10 @@ bool verifyConnectivity() {
         }
     }
 
-    if (current != finZeroIdx || A[current.first][current.second] == 0) {
+    if (current != finZeroIdx) {
         return false;
     }
-    visited[current.first][current.second] = 1;
+    visited[current.fi][current.se] = 1;
 
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
@@ -97,27 +107,19 @@ bool verifyConstraint(vector<int> crow, vector<int> ccol) {
     return true;
 }
 
-void debug() {
-    cout << "m and n: " << m << " " << n << endl;
-    cout << "start: " << start.first << " " << start.second << endl;
-    cout << "finish: " << finish.first << " " << finish.second << endl;
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            cout << A[i][j] << " ";
-        }
-        cout << endl;
-    }
-}
-
 int main() {
     readInput();
-    // debug();
+    timeStart = steady_clock::now();
 
     if (verifyConnectivity() && verifyConstraint(cr, cc)) {
-        cout << "correct solution!";
+        cout << "valid solution!";
     } else {
-        cout << "incorrect solution!";
+        cout << "invalid!";
     }
+    
+    timeStop = steady_clock::now();
+    auto duration = duration_cast<nanoseconds>(timeStop - timeStart);
+    cout << endl << "time taken: " << duration.count()/1000000.0 << "ms.";
 
     return 0;
 }
