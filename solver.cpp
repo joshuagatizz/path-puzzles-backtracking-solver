@@ -13,7 +13,6 @@ int m, n;
 pair<int, int> start, finish;
 vector<vector<char>> A;
 vector<int> cr, cc;
-bool isFound = false;
 
 int mx[] = {1, 0, 0, -1};
 int my[] = {0, -1, 1, 0};
@@ -92,7 +91,13 @@ void traverseCell(pair<int, int> current) {
 
     decrementEntry(current.fi, current.se);
     
-    if (current != finZeroIdx) {
+    if (current == finZeroIdx) {
+        if (isConstraintValid()) {
+            A[current.fi][current.se] = 'u';
+            outputSolution();
+            exit(0);
+        }
+    } else {
         for (int i = 0; i < 4; i++) {
             adj = {current.fi+mx[i], current.se+my[i]};
             if (isValidCell(adj.fi, adj.se) && A[adj.fi][adj.se] == '0' && cr[adj.fi] != 0 && cc[adj.se] != 0) {
@@ -101,17 +106,9 @@ void traverseCell(pair<int, int> current) {
                 traverseCell(adj);
                 
                 A[current.fi][current.se] = '0';
-                
             }
         }
-    } else {
-        if (isConstraintValid()) {
-            A[current.fi][current.se] = 'u';
-            outputSolution();
-            exit(0);
-        }
     }
-    
     incrementEntry(current.fi, current.se);
 }
 
