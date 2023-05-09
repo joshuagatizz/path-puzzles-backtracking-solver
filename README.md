@@ -128,7 +128,7 @@ time taken: 1ms.
  ```
 ## Usage
 
-To use the code and data in this repository, simply clone the repository and compile `verifier.cpp` and `solver.cpp` files, run the executable and give and type the input manually or use a file input such as the test cases.
+To use the code and data in this repository, simply clone the repository and compile `verifier.cpp` and `solver.cpp` files, run the executable and type the input manually or use a file input such as the test cases.
 
 ## Experiment Results
 
