@@ -68,7 +68,7 @@ bool verifyConnectivity() {
         }
     }
 
-    if (current != finZeroIdx) {
+    if (current != finZeroIdx || A[current.fi][current.se] != 'u') {
         return false;
     }
     visited[current.fi][current.se] = 1;
