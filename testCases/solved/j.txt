@@ -8,6 +8,6 @@
 r r r r r d
 0 0 0 d l l
 0 0 0 d 0 0
-l 0 0 d 0 0
+u 0 0 d 0 0
 u l 0 d 0 0
 0 u l l 0 0

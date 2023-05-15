@@ -48,7 +48,7 @@ bool verifyConnectivity() {
     pair<int, int> staZeroIdx = {start.fi-1, start.se-1};
     pair<int, int> finZeroIdx = {finish.fi-1, finish.se-1};
     
-    if (A[staZeroIdx.fi][staZeroIdx.se] == 0 || A[finZeroIdx.fi][finZeroIdx.se] == 0) {
+    if (A[staZeroIdx.fi][staZeroIdx.se] == '0' || A[finZeroIdx.fi][finZeroIdx.se] != 'u') {
         return false;
     }
 

@@ -9,5 +9,5 @@
 d l 0 0 u l
 d 0 0 0 0 0
 d 0 0 0 0 0
-r d 0 0 r r
+r d 0 0 r u
 0 r r r u 0

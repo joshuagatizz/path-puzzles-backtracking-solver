@@ -10,4 +10,4 @@ u d 0 r u d
 u d r u d l
 u r u d l 0
 u 0 0 r d 0
-u 0 0 0 r d
+u 0 0 0 r u
