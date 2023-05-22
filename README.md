@@ -3,6 +3,8 @@
 **Path puzzle** is a pencil-and-paper puzzle that was proven to be NP-complete. This repository contains code and data related to solving Path puzzles. The implemented Path puzzles solver uses a backtracking algorithm and has a asymptotic time complexity of $O(3^{mn})$, where $m \times n$ is the size of the puzzle.
 For more information about the puzzle, see [https://www.enigami.fun](https://www.enigami.fun/_files/ugd/e33b96_3c76845fa9dd413a9f1606ce1c040b99.pdf) or the [original book](https://books.google.co.id/books/about/Path_Puzzles.html?id=tDhaswEACAAJ&redir_esc=y) by Roderick Kimball.
 
+The following repository is related to our paper (submitted to Journal of Fundamental Mathematics and Application (JFMA)). The preprint of this paper is available in the preprint folder. This preprint will be available until our paper is published. 
+
 ## Test Cases
 
 The `testCases` directory contains a set of test cases in plain text that are taken from [font-pathpuzzles](https://github.com/edemaine/font-pathpuzzles) repository by Erik Demaine.  The directory contains two subdirectories `solved` and `unsolved` which contains the input files for the Path puzzles verifier and solver, respectively. 
